@@ -1,0 +1,25 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  annotations: null
+  labels:
+    app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+    env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+    env_name: init-production
+    organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+    platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+    platformer_app_name: audit-module
+    platformer_component: rudder
+    platformer_system: "true"
+    project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+    vpa_id: 73119c40-9968-4997-bdc8-99400b5d48fd
+  name: audit-module-init-production-3192360657
+  namespace: init-system
+spec:
+  resourcePolicy: {}
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: audit-module-init-production-3192360657
+  updatePolicy:
+    updateMode: "Off"
