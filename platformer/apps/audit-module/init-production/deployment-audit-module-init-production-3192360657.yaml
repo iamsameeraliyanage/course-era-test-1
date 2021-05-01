@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    reloader.stakater.com/auto: "true"
+  labels:
+    app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+    env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+    env_name: init-production
+    organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+    platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+    platformer_app_name: audit-module
+    platformer_component: rudder
+    platformer_system: "true"
+    project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+  name: audit-module-init-production-3192360657
+  namespace: init-system
+spec:
+  replicas: 7
+  selector:
+    matchLabels:
+      app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+      env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+      env_name: init-production
+      organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+      platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+      platformer_app_name: audit-module
+      platformer_component: rudder
+      platformer_system: "true"
+      project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        platformer.com/reload-hash: dd6c2f8d-cd17-4343-ac4d-13aa133070c4
+      labels:
+        app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+        env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+        env_name: init-production
+        organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+        platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+        platformer_app_name: audit-module
+        platformer_component: rudder
+        platformer_system: "true"
+        project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+    spec:
+      containers:
+      - args: []
+        command: []
+        envFrom: []
+        image: gcr.io/projectx-production-284016/audit-module:4f61f6efab7df28d4477323b29728bb4a7465a27
+        imagePullPolicy: Always
+        name: audit-module
+        ports:
+        - containerPort: 3000
+          name: port-3000
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 135m
+            memory: 256Mi
+          requests:
+            cpu: 135m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /config/config.json
+          name: 2b5dd561-1f51-44f8-b739-fb632884ab60
+          subPath: config.json
+        - mountPath: /config/audit-sk.json
+          name: 7385dd1c-3ffc-431f-a62d-a123d02b4887
+          subPath: audit-sk.json
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 60
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: file-kddcitmf-3054376362
+        name: 2b5dd561-1f51-44f8-b739-fb632884ab60
+      - configMap:
+          defaultMode: 420
+          name: file-kddcf4o3-634684683
+        name: 7385dd1c-3ffc-431f-a62d-a123d02b4887
+      - emptyDir: {}
+        name: test-3192360657
+      - emptyDir: {}
+        name: test

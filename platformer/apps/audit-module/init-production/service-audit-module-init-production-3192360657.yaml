@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+    env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+    env_name: init-production
+    organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+    platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+    platformer_app_name: audit-module
+    platformer_component: rudder
+    platformer_system: "true"
+    project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+  name: audit-module-init-production-3192360657
+  namespace: init-system
+spec:
+  ports:
+  - name: port-3000
+    port: 3000
+    targetPort: 3000
+  selector:
+    app_environment_id: 8a8d41bd-7e2d-4fe9-b44a-9760cf9cf1a3
+    env_id: 3b6fcdf5-873e-40c3-ac65-014144439d29
+    env_name: init-production
+    organization_id: 87618e18-5896-4f4c-bd23-b231159bf1fe
+    platformer_app_id: bc93c40c-65f2-4e8a-ab5c-6401d70dc4a1
+    platformer_app_name: audit-module
+    platformer_component: rudder
+    platformer_system: "true"
+    project_id: d14fb814-37a2-4e72-9e41-db3ac0888551
+  type: ClusterIP
